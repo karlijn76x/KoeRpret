@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct NavigationView: View {
+struct CombinedView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            BackGroundView()
+            BackgroundSquare()
+        }
     }
 }
-
 #Preview {
-    NavigationView()
+    CombinedView()
 }
