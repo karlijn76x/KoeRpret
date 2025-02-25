@@ -9,7 +9,13 @@ import SwiftUI
 
 struct InformationPopUpView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Welkom bij KoeRpret,")
+            
+            Text("Vind boerderijen in de buurt en schakel over naar de KinderModus, waar een vrolijke koe-mascotte je op weg helpt. Scan QR-codes op de boerderij om leuke weetjes te ontdekken en minigames te spelen!")
+        }
+        .font(.custom("Patrick Hand SC", size: 20))
+        
     }
 }
 
