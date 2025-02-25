@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CombinedView: View {
+struct NavigationView: View {
     var body: some View {
         ZStack {
             BackGroundView()
@@ -16,5 +16,5 @@ struct CombinedView: View {
     }
 }
 #Preview {
-    CombinedView()
+    NavigationView()
 }
