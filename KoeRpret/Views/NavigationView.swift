@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct NavigationView: View {
-    @State var isNavigatingToKidsMode = false
-    
+
+   @State var isNavigatingToKidsMode = false
+
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
