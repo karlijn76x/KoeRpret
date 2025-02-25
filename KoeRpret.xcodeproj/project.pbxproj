@@ -6,13 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0382734C2D6CADAE00143851 /* PatrickHandSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0382734B2D6CADAE00143851 /* PatrickHandSC-Regular.ttf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		038272B72D65F5FD00143851 /* KoeRpret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoeRpret.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0382734B2D6CADAE00143851 /* PatrickHandSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PatrickHandSC-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0382734E2D6CB27E00143851 /* Exceptions for "KoeRpret" folder in "KoeRpret" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 038272B62D65F5FD00143851 /* KoeRpret */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		038272B92D65F5FD00143851 /* KoeRpret */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0382734E2D6CB27E00143851 /* Exceptions for "KoeRpret" folder in "KoeRpret" target */,
+			);
 			path = KoeRpret;
 			sourceTree = "<group>";
 		};
@@ -32,8 +50,9 @@
 		038272AE2D65F5FD00143851 = {
 			isa = PBXGroup;
 			children = (
-				038272B92D65F5FD00143851 /* KoeRpret */,
+				0382734A2D6CAC9C00143851 /* Fonts */,
 				038272B82D65F5FD00143851 /* Products */,
+				038272B92D65F5FD00143851 /* KoeRpret */,
 			);
 			sourceTree = "<group>";
 		};
@@ -43,6 +62,14 @@
 				038272B72D65F5FD00143851 /* KoeRpret.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0382734A2D6CAC9C00143851 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0382734B2D6CADAE00143851 /* PatrickHandSC-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0382734C2D6CADAE00143851 /* PatrickHandSC-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +282,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"KoeRpret/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KoeRpret/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,6 +311,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"KoeRpret/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KoeRpret/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
