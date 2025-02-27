@@ -50,6 +50,11 @@ struct QuizView: View {
                             showAlert = true
                             isCorrectAnswer = true
                         }
+                    Image("CowSpot")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.03)
 
                     // Feitje knop (alleen bij goed antwoord)
                     if isCorrectAnswer {

@@ -1,6 +1,12 @@
+//
+//  MiniGameDone.swift
+//  KoeRpret
+//
+//  Created by Jasmin Hachmane on 27/02/2025.
+//
 import SwiftUI
 
-struct AnswerPopUpView: View {
+struct MiniGameDoneView: View {
     @State private var isNavigating = false
     
     var body: some View {
@@ -11,7 +17,7 @@ struct AnswerPopUpView: View {
                     BackgroundSquare()
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
                     
-                    Image("KlaraFact")
+                    Image("KlaraHappy")
                         .resizable()
                         .scaledToFit() // Keeps ratio
                         .frame(width: 427, height: 602)
@@ -20,11 +26,8 @@ struct AnswerPopUpView: View {
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
                     
                     
-                    Text("💡")
-                        .font(.system(size: 90))
-                        .offset(x: -160, y: -93)
                     
-                    Text("Feitje")
+                    Text("Mini Game")
                         .font(.custom("PatrickHandSC-Regular", size: 50))
                         .foregroundColor(.black)
                         .padding()
@@ -34,7 +37,7 @@ struct AnswerPopUpView: View {
                     ZStack(alignment: .topLeading) {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(Color.white)
-                            .frame(width: 320, height: 260)
+                            .frame(width: 320, height: 250)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.black, lineWidth: 1) // Dunne zwarte lijn
@@ -57,28 +60,34 @@ struct AnswerPopUpView: View {
                     .offset(y: geometry.size.height * 0.23) // Hele ZStack verplaatsen
 
                     
-                    Text("Wist je dat wij beste vriendinnen hebben en we gestrest raken als we gescheiden worden? Ik kan niet zonder ze!")
-                        .font(.custom("PatrickHandSC-Regular", size: 30))
+                    Text("Jaa? Ohh klaar! Goed gedaan. Nu kunnen we weer verder, moehihi")
+                        .font(.custom("PatrickHandSC-Regular", size: 33))
                         .multilineTextAlignment(.center)
                         .padding(10)
                         .frame(width: 300, alignment: .center)
                         .offset(y: geometry.size.height * 0.22)
                     
-                    // Home-emoji knop linksboven
                     NavigationLink(destination: HomeView()) {
                         Text("🏡")
                             .font(.system(size: 60))
                             .padding(10)
                     }
                     .position(x: geometry.size.width * 0.1, y: geometry.size.height * 0.03)
+                    
+                    Image("CowSpot")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.03)
+
 
                     
-                    CustomButtonView(text: "Verder", width: 170, height: 45, fontSize: 40) {
+                    CustomButtonView(text: "Klaar!", width: 170, height: 45, fontSize: 40) {
                         isNavigating = true
                     }
                     .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.94) // Dynamically placed at the bottom
                     
-                    NavigationLink(destination: MiniGameView(), isActive: $isNavigating) {
+                    NavigationLink(destination: HomeView(), isActive: $isNavigating) {
                         EmptyView()
                     }
                     .hidden()
@@ -89,6 +98,8 @@ struct AnswerPopUpView: View {
 }
 
 #Preview {
-    AnswerPopUpView()
+    MiniGameDoneView()
 }
+
+
 

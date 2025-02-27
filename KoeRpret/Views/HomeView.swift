@@ -11,7 +11,7 @@ struct HomeView: View {
                     BackGroundView()
                     BackgroundSquare()
                     
-                    Text("Boe-gin de pret 🔐")
+                    Text("Boe-gin de pret")
                         .font(.custom("PatrickHandSC-Regular", size: 50))
                         .foregroundColor(.black)
                         .padding()
@@ -31,6 +31,12 @@ struct HomeView: View {
                         }
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.2)
                     }
+                    NavigationLink(destination: KidsLockView()) {
+                        Text("🔐")
+                            .font(.system(size: 40))
+                            .padding(10)
+                    }
+                    .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.0)
 
                     // NavigationLink for the first button (QuizView)
                     NavigationLink(destination: QuizView(), isActive: $isNavigatingToQuiz) {
