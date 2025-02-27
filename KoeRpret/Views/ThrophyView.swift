@@ -12,6 +12,7 @@ struct ThrophyView: View {
         ZStack {
             BackGroundView()
             BackgroundSquare()
+            Text("Boe-nuspunten")
         }
     }
 }
