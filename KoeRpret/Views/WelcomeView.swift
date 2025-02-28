@@ -48,6 +48,8 @@ struct WelcomeView: View {
                     .hidden()
                 }
             }
+        } .onAppear {
+            AudioManager.shared.playCowSound()
         }
     }
 }
