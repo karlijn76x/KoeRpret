@@ -28,7 +28,7 @@ struct BackgroundSquare: View {
                     .shadow(color: Color.white.opacity(1), radius: 1) // Extra shadow on border
             )
             .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 5) // Schadow
-            .offset(y: 30) // Move square a little down
+            //.offset(y: 30) // Move square a little down
     }
 }
 

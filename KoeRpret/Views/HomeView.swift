@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var isNavigatingToQuiz = false
+
+    @State private var isNavigatingToCamera = false
     @State private var isNavigatingToTrophy = false
     
     var body: some View {
@@ -10,7 +11,7 @@ struct HomeView: View {
                 ZStack {
                     BackGroundView()
                     BackgroundSquare()
-                    
+ 
                     Text("Boe-gin de pret")
                         .font(.custom("PatrickHandSC-Regular", size: 50))
                         .foregroundColor(.black)
@@ -21,7 +22,7 @@ struct HomeView: View {
                         
                         // First button to navigate to QuizView
                         CustomButtonView(text: "📷", width: 250, height: 270, fontSize: 130) {
-                            isNavigatingToQuiz = true
+                            isNavigatingToCamera = true
                         }
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.3)
                         
@@ -39,7 +40,7 @@ struct HomeView: View {
                     .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.0)
 
                     // NavigationLink for the first button (QuizView)
-                    NavigationLink(destination: QuizView(), isActive: $isNavigatingToQuiz) {
+                    NavigationLink(destination: CameraView(), isActive: $isNavigatingCamera) {
                         EmptyView()
                     }
                     .hidden()

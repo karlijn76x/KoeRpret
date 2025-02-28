@@ -3,6 +3,7 @@ import SwiftUI
 struct StartScreenView: View {
     @State private var isShowingPopUpInfo = false
     @State private var isNavigating = false
+    @State private var isMuted = false
 
     var body: some View {
         NavigationStack {
@@ -35,22 +36,38 @@ struct StartScreenView: View {
                     }
                     .hidden()
                     
+                    
+                    Button(action: { isShowingPopUpInfo.toggle() }) {
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .position(x: 350, y: 11) 
+
+                    
                     VStack {
                         Spacer()
                         HStack {
                             Spacer()
-                            Button(action: { isShowingPopUpInfo.toggle() }) {
-                                Image(systemName: "info.circle")
+                            
+                      
+                            Button(action: {
+                                isMuted.toggle()
+                                AudioManager.shared.toggleMute()
+                            }) {
+                                Image(systemName: isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 30, height: 30)
                                     .foregroundColor(.white)
                             }
-                            .padding(.trailing, 20)
+                            .padding()
                         }
-                        .padding(.bottom, 20)
                     }
-                    .position(x: geometry.size.width * 1, y: 40)
+                    .position(x: -115, y: -350)
                     
                     if isShowingPopUpInfo {
                         ZStack {
@@ -68,15 +85,18 @@ struct StartScreenView: View {
                                         Image(systemName: "xmark.circle.fill")
                                             .foregroundColor(.gray)
                                             .padding()
+                                            .position(x: 175, y: -320)
                                     },
                                     alignment: .topTrailing
                                 )
                         }
-                        
                         Spacer()
                     }
                 }
             }
+        }
+        .onAppear {
+            AudioManager.shared.playBackgroundMusic()
         }
     }
 }
