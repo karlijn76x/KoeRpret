@@ -28,7 +28,7 @@ struct WelcomeView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 350, height: 300)
-                        .offset(y: geometry.size.height * 0.25)
+                        .offset(y: geometry.size.height * 0.23)
                     
                     Text("Moee ik ben Klara. Welkom op mijn boerderij!")
                         .font(.custom("PatrickHandSC-Regular", size: 33))
@@ -40,7 +40,7 @@ struct WelcomeView: View {
                     CustomButtonView(text: "Ontdek", width: 210, height: 50, fontSize: 50) {
                         isNavigating = true
                     }
-                    .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.955) // Dynamically placed at the bottom
+                    .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.93) // Dynamically placed at the bottom
                     
                     NavigationLink(destination: HomeView(), isActive: $isNavigating) {
                         EmptyView()
