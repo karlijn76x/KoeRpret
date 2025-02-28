@@ -9,7 +9,7 @@ struct WelcomeView: View {
                 ZStack {
                     BackGroundView()
                     BackgroundSquare()
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
+                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.55)
                     Image("KlaraWave")
                         .resizable()
                         .scaledToFit() // Keeps ratio

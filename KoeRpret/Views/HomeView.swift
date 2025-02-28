@@ -11,6 +11,7 @@ struct HomeView: View {
                 ZStack {
                     BackGroundView()
                     BackgroundSquare()
+                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.55)
  
                     Text("Boe-gin de pret")
                         .font(.custom("PatrickHandSC-Regular", size: 50))
@@ -18,29 +19,24 @@ struct HomeView: View {
                         .padding()
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.04)
 
-                    VStack(spacing: 60) {  // The space between the buttons
+                    VStack(spacing: 60) {
                         
-                        // First button to navigate to QuizView
+                        
                         CustomButtonView(text: "📷", width: 250, height: 270, fontSize: 130) {
                             isNavigatingToCamera = true
                         }
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.3)
+                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.33)
                         
-                        // Second button to navigate to TrophyView
+                        
                         CustomButtonView(text: "🏆", width: 250, height: 270, fontSize: 130) {
                             isNavigatingToTrophy = true
                         }
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.2)
                     }
-                    NavigationLink(destination: KidsLockView()) {
-                        Text("🔐")
-                            .font(.system(size: 40))
-                            .padding(10)
-                    }
-                    .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.0)
+                    
 
                     // NavigationLink for the first button (QuizView)
-                    NavigationLink(destination: CameraView(), isActive: $isNavigatingCamera) {
+                    NavigationLink(destination: CameraView(), isActive: $isNavigatingToCamera) {
                         EmptyView()
                     }
                     .hidden()

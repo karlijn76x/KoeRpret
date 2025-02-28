@@ -11,7 +11,7 @@ struct MiniGameDoneView: View {
                     BackGroundView()
                     BackgroundSquare()
                     ConfettiView()
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
+                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.55)
                     
                     Image("KlaraHappy")
                         .resizable()

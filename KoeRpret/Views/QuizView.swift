@@ -13,7 +13,7 @@ struct QuizView: View {
                 ZStack {
                     BackGroundView()
                     BackgroundSquare()
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
+                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.55)
 
                     Text("Mini-game")
                         .font(.custom("PatrickHandSC-Regular", size: 50))
@@ -78,6 +78,13 @@ struct QuizView: View {
                     Button("OK", role: .cancel) { }
                 }
                 
+                
+                NavigationLink(destination: HomeView()) {
+                    Text("🏡")
+                        .font(.system(size: 60))
+                        .padding(10)
+                }
+                .position(x: geometry.size.width * 0.1, y: geometry.size.height * 0.03)
                 
                 NavigationLink(destination: AnswerPopUpView(), isActive: $isNavigating) {
                     EmptyView()
