@@ -2,6 +2,8 @@ import SwiftUI
 
 struct AnswerPopUpView: View {
     @State private var isNavigating = false
+    @State private var isAnimating = false
+    @State private var isBlinking = false
     
     var body: some View {
         NavigationStack {
@@ -13,16 +15,27 @@ struct AnswerPopUpView: View {
                     
                     Image("KlaraFact")
                         .resizable()
-                        .scaledToFit() // Keeps ratio
+                        .scaledToFit()
                         .frame(width: 427, height: 602)
                         .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity, alignment: .center) // Always center
+                        .frame(maxWidth: .infinity, alignment: .center)
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
                     
-                    
+
+                    //With Animation
                     Text("💡")
-                        .font(.system(size: 90))
-                        .offset(x: -160, y: -93)
+                        .font(.system(size: 95))
+                        .opacity(isBlinking ? 0 : 1.0)
+                        .position(x: geometry.size.width * 0.11, y: geometry.size.height * 0.38)
+                        .animation(
+                            Animation.easeInOut(duration: 0.6)
+                                .repeatForever(autoreverses: true),
+                            value: isBlinking
+                        )
+                        .onAppear {
+                            isBlinking = true
+                        }
+
                     
                     Text("Feitje")
                         .font(.custom("PatrickHandSC-Regular", size: 50))
@@ -30,22 +43,21 @@ struct AnswerPopUpView: View {
                         .padding()
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.04)
                     
-                    // witte vlak en het groene naambordje
                     ZStack(alignment: .topLeading) {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(Color.white)
                             .frame(width: 320, height: 260)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 1) // Dunne zwarte lijn
+                                    .stroke(Color.black, lineWidth: 1)
                             )
                             .shadow(radius: 5)
                         
-                        // Groen naambordje linksboven
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
-                                .fill(Color(red: 199/255, green: 223/255, blue: 182/255))                                .frame(width: 90, height: 40)
-                                .rotationEffect(.degrees(-20)) // Schuin zetten
+                                .fill(Color(red: 199/255, green: 223/255, blue: 182/255))
+                                .frame(width: 90, height: 40)
+                                .rotationEffect(.degrees(-20))
                             
                             Text("Klara")
                                 .font(.custom("PatrickHandSC-Regular", size: 25))
@@ -54,8 +66,7 @@ struct AnswerPopUpView: View {
                         }
                         .offset(x: -30, y: -15)
                     }
-                    .offset(y: geometry.size.height * 0.23) // Hele ZStack verplaatsen
-
+                    .offset(y: geometry.size.height * 0.23)
                     
                     Text("Wist je dat wij beste vriendinnen hebben en we gestrest raken als we gescheiden worden? Ik kan niet zonder ze!")
                         .font(.custom("PatrickHandSC-Regular", size: 30))
@@ -64,7 +75,6 @@ struct AnswerPopUpView: View {
                         .frame(width: 300, alignment: .center)
                         .offset(y: geometry.size.height * 0.22)
                     
-                    // Home-emoji knop linksboven
                     NavigationLink(destination: HomeView()) {
                         Text("🏡")
                             .font(.system(size: 60))
@@ -72,11 +82,10 @@ struct AnswerPopUpView: View {
                     }
                     .position(x: geometry.size.width * 0.1, y: geometry.size.height * 0.03)
 
-                    
                     CustomButtonView(text: "Verder", width: 170, height: 45, fontSize: 40) {
                         isNavigating = true
                     }
-                    .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.94) // Dynamically placed at the bottom
+                    .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.94)
                     
                     NavigationLink(destination: MiniGameView(), isActive: $isNavigating) {
                         EmptyView()

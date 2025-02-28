@@ -5,6 +5,7 @@ struct QuizView: View {
     @State private var alertMessage = ""
     @State private var isCorrectAnswer = false
     @State private var isNavigating = false
+    @AppStorage("score") private var score = 0  // Score opslaan en ophalen
 
     var body: some View {
         NavigationStack {
@@ -27,7 +28,7 @@ struct QuizView: View {
                         .font(.custom("PatrickHandSC-Regular", size: 36))
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.35)
 
-                    // Melk Afbeelding (Fout antwoord)
+                    
                     Image("MilkImage")
                         .resizable()
                         .frame(width: 270, height: 147)
@@ -39,7 +40,7 @@ struct QuizView: View {
                             isCorrectAnswer = false
                         }
 
-                    // Water Afbeelding (Goed antwoord)
+                    
                     Image("WaterImage")
                         .resizable()
                         .frame(width: 270, height: 147)
@@ -49,26 +50,35 @@ struct QuizView: View {
                             alertMessage = "Helemaal goed!"
                             showAlert = true
                             isCorrectAnswer = true
+                            score += 1
                         }
+
+                    
                     Image("CowSpot")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100, height: 100)
                         .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.03)
 
+                    Text("\(score)")
+                        .font(.custom("PatrickHandSC-Regular", size: 25))
+                        .bold()
+                        .foregroundColor(.white)
+                        .position(x: geometry.size.width * 0.85, y: geometry.size.height * 0.026)
+
                     // Feitje knop (alleen bij goed antwoord)
                     if isCorrectAnswer {
                         CustomButtonView(text: "Feitje", width: 210, height: 50, fontSize: 50) {
                             isNavigating = true
                         }
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.93) // Onderaan geplaatst
+                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.93)
                     }
                 }
                 .alert(alertMessage, isPresented: $showAlert) {
                     Button("OK", role: .cancel) { }
                 }
                 
-                // Navigatie naar AnswerPopupView
+                
                 NavigationLink(destination: AnswerPopUpView(), isActive: $isNavigating) {
                     EmptyView()
                 }
