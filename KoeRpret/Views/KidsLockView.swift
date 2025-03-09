@@ -4,11 +4,13 @@ struct KidsLockView: View {
     @State private var answer = ""
     @State private var isNavigatingToWelcome = false
     @State private var showAlert = false
+    @FocusState private var isAnswerFieldFocused: Bool
 
     var body: some View {
         NavigationStack {
             ZStack {
                 BackGroundView()
+                
 
                 VStack(spacing: 2) {
                     Text("PSSsst..")
@@ -16,6 +18,9 @@ struct KidsLockView: View {
                         
                     ZStack {
                         BackgroundSquare()
+                            .onTapGesture {
+                                isAnswerFieldFocused = false
+                            }
                         
                         VStack(spacing: 20) {
                             Image("KlaraHappyIcon")
@@ -39,6 +44,7 @@ struct KidsLockView: View {
                                 .cornerRadius(8)
                                 .multilineTextAlignment(.center)
                                 .keyboardType(.numberPad)
+                                .focused($isAnswerFieldFocused)
                             
                             CustomButtonView(text: "Lock!", width: 210, height: 90, fontSize: 70) {
                                 checkAnswer()
