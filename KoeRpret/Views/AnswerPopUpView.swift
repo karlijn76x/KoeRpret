@@ -87,7 +87,7 @@ struct AnswerPopUpView: View {
                     }
                     .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.94)
                     
-                    NavigationLink(destination: MiniGameView(), isActive: $isNavigating) {
+                    NavigationLink(destination: HomeView(), isActive: $isNavigating) {
                         EmptyView()
                     }
                     .hidden()
